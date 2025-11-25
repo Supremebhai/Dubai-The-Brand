@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dubai The Brand – Official Channel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg-overlay"></div>
+
+  <div class="card">
+    <!-- Online badge -->
+    <div class="top-badge">
+      <span class="dot"></span>
+      Private access • Dubai The Brand
+    </div>
+
+    <!-- Center Avatar -->
+    <div class="avatar-wrapper">
+      <div class="avatar-ring">
+        <!-- अपनी DP का सही नाम यहाँ रखें -->
+        <img src="dp.jpg" alt="Dubai The Brand" class="avatar" />
+      </div>
+    </div>
+
+    <!-- Name + subtitle -->
+    <h1 class="name">DUBAI THE BRAND</h1>
+    <p class="subtitle">
+      Elite <span>cricket calls & pre-match breakdowns</span> for players who think in odds, not emotions.
+    </p>
+
+    <!-- Small feature pills -->
+    <div class="pill-row">
+      <div class="pill">Gold-standard Analysis</div>
+      <div class="pill">Discipline & Risk Control</div>
+      <div class="pill">Invite-Only Vibes</div>
+    </div>
+
+    <!-- Timer -->
+    <div class="timer-box">
+      <div id="timer">00:49</div>
+      <div class="timer-label">access window closing</div>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn">
+      Join Dubai The Brand on Telegram
+    </a>
+
+    <!-- Text blocks -->
+    <p class="tagline">
+      Step into a room where <span>clarity, patience & numbers</span> speak louder than noise.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="sub-tagline">
+      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and scoreboard-aware reads – not random late calls.
+    </p>
+
+    <div class="stats-row">
+      <div>Spots open: <span>Very limited</span></div>
+      <div>Mindset: <span>Professional & controlled</span></div>
+    </div>
+
+    <p class="disclaimer">
+      <strong>Note:</strong> Nothing here is a guarantee of profit. Decisions are yours – play only with money you can afford and keep your risk fixed.
+    </p>
+  </div>
+
+  <script>
+    function startTimer(duration, display) {
+      let timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
+        }
+      }, 1000);
+    }
+
+    window.onload = function () {
+      const countdownSeconds = 49;
+      const display = document.getElementById("timer");
+      startTimer(countdownSeconds, display);
+    };
+
+    // CTA click – सिर्फ delay के साथ redirect
+    document.querySelector(".cta-btn").addEventListener("click", function(e) {
+      e.preventDefault();
+      setTimeout(() => {
+        window.location.href = "https://t.me/+x2e7GU-YMi9kYTc1";
+      }, 600);
+    });
+  </script>
+</body>
+</html>
