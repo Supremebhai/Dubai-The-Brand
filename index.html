@@ -2,22 +2,23 @@
 <html lang="en">
 <head> 
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1271613704700217');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1271613704700217&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1271613704700217');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1271613704700217&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dubai The Brand – Official Channel</title>
@@ -63,7 +64,8 @@ src="https://www.facebook.com/tr?id=1271613704700217&ev=PageView&noscript=1"
     </div>
 
     <!-- CTA Button -->
-    <a href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn">
+    <!-- added id="cta-join" so JS can attach Lead event -->
+    <a id="cta-join" href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn" target="_blank" rel="noopener">
       Join Dubai The Brand on Telegram
     </a>
 
@@ -75,4 +77,52 @@ src="https://www.facebook.com/tr?id=1271613704700217&ev=PageView&noscript=1"
     <div class="divider"></div>
 
     <p class="sub-tagline">
-      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas a
+      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and trade-ready calls.
+    </p>
+  </div>
+
+  <!-- -------------------------
+       Lead Event JS (added)
+       ------------------------- -->
+  <script>
+    (function() {
+      // safe-check: ensure fbq is available before calling
+      function fireLeadEvent(additionalData) {
+        try {
+          if (typeof fbq === 'function') {
+            // Example: send a value and currency if you want. Change or remove as needed.
+            fbq('track', 'Lead', Object.assign({value: 0.00, currency: 'USD'}, additionalData || {}));
+            console.log('FB Lead event fired');
+          } else {
+            console.warn('fbq not found. Lead event not fired.');
+          }
+        } catch (e) {
+          console.error('Error firing Lead event', e);
+        }
+      }
+
+      // Attach to CTA click
+      var cta = document.getElementById('cta-join');
+      if (cta) {
+        cta.addEventListener('click', function(e) {
+          // Optional: if you want to block navigation until pixel fires, you could preventDefault and open after a short delay.
+          // For now we just fire the event and let the link open (recommended: open in new tab as done with target="_blank").
+          fireLeadEvent();
+        });
+      }
+
+      // If you have a form submit for leads, here's an example hook:
+      // var leadForm = document.getElementById('lead-form-id');
+      // if (leadForm) {
+      //   leadForm.addEventListener('submit', function(e) {
+      //     fireLeadEvent({value: 10.00, currency: 'USD'}); // set value if relevant
+      //   });
+      // }
+
+      // OPTIONAL: Expose function globally in case you want to call it from inline handlers
+      window.fireFbLead = fireLeadEvent;
+    })();
+  </script>
+
+</body>
+</html>
