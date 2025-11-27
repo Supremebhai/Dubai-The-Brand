@@ -112,10 +112,12 @@ src="https://www.facebook.com/tr?id=1543114426978558&ev=PageView&noscript=1"
       startTimer(countdownSeconds, display);
     };
 
-    // CTA click – सिर्फ delay के साथ redirect
-    document.querySelector(".cta-btn").addEventListener("click", function(e) {
-      e.preventDefault();
-      setTimeout(() => {
+   </script> 
+  <script>
+document.querySelector(".cta-btn").addEventListener("click", function(e) {
+  e.preventDefault();
+  fbq('track', 'Subscribe');
+  setTimeout(() => {
         window.location.href = "https://t.me/+x2e7GU-YMi9kYTc1";
       }, 600);
     });
