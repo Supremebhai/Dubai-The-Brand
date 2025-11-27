@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-  <!-- Meta Pixel Code -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dubai The Brand – Official Channel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Meta Pixel Code (your Pixel ID used) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -11,19 +17,13 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1271613704700217');
+  fbq('init', '1543114426978558'); // ← your Pixel ID
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1271613704700217&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1543114426978558&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dubai The Brand – Official Channel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -63,9 +63,8 @@
       <div class="timer-label">access window closing</div>
     </div>
 
-    <!-- CTA Button -->
-    <!-- added id="cta-join" so JS can attach Lead event -->
-    <a id="cta-join" href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn" target="_blank" rel="noopener">
+    <!-- CTA Button (id added for JS handling) -->
+    <a id="ctaJoin" href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn">
       Join Dubai The Brand on Telegram
     </a>
 
@@ -77,52 +76,73 @@
     <div class="divider"></div>
 
     <p class="sub-tagline">
-      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and trade-ready calls.
+      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and scoreboard-aware reads – not random late calls.
+    </p>
+
+    <div class="stats-row">
+      <div>Spots open: <span>Very limited</span></div>
+      <div>Mindset: <span>Professional & controlled</span></div>
+    </div>
+
+    <p class="disclaimer">
+      <strong>Note:</strong> Nothing here is a guarantee of profit. Decisions are yours – play only with money you can afford and keep your risk fixed.
     </p>
   </div>
 
-  <!-- -------------------------
-       Lead Event JS (added)
-       ------------------------- -->
   <script>
-    (function() {
-      // safe-check: ensure fbq is available before calling
-      function fireLeadEvent(additionalData) {
-        try {
-          if (typeof fbq === 'function') {
-            // Example: send a value and currency if you want. Change or remove as needed.
-            fbq('track', 'Lead', Object.assign({value: 0.00, currency: 'USD'}, additionalData || {}));
-            console.log('FB Lead event fired');
-          } else {
-            console.warn('fbq not found. Lead event not fired.');
-          }
-        } catch (e) {
-          console.error('Error firing Lead event', e);
+    // Timer (unchanged)
+    function startTimer(duration, display) {
+      let timer = duration, minutes, seconds;
+      setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = duration;
         }
+      }, 1000);
+    }
+
+    window.onload = function () {
+      const countdownSeconds = 49;
+      const display = document.getElementById("timer");
+      startTimer(countdownSeconds, display);
+    };
+
+    // ===== Meta Pixel Subscribe integration (fires once per browser) =====
+    (function () {
+      const CTA_ID = 'ctaJoin';
+      const LS_KEY = 'dtb_subscribed_v1'; // change version if you want to reset
+      const PIXEL_EVENT_NAME = 'Subscribe';
+      const SOURCE = 'github-landing';
+      const REDIRECT_DELAY_MS = 600; // same as original delay
+
+      const cta = document.getElementById(CTA_ID);
+      if (!cta) return;
+
+      // safe UUID generator
+      function generateEventId() {
+        if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+        return 'evt-' + Date.now() + '-' + Math.floor(Math.random()*1e9);
       }
 
-      // Attach to CTA click
-      var cta = document.getElementById('cta-join');
-      if (cta) {
-        cta.addEventListener('click', function(e) {
-          // Optional: if you want to block navigation until pixel fires, you could preventDefault and open after a short delay.
-          // For now we just fire the event and let the link open (recommended: open in new tab as done with target="_blank").
-          fireLeadEvent();
-        });
+      // If already subscribed in this browser, optionally change CTA text/state
+      if (localStorage.getItem(LS_KEY) === '1') {
+        // show subscribed UI
+        cta.textContent = 'Joined — Thank you!';
+        cta.classList.add('disabled'); // you can style .disabled in CSS
+        // keep href so user can still open telegram if they want
       }
 
-      // If you have a form submit for leads, here's an example hook:
-      // var leadForm = document.getElementById('lead-form-id');
-      // if (leadForm) {
-      //   leadForm.addEventListener('submit', function(e) {
-      //     fireLeadEvent({value: 10.00, currency: 'USD'}); // set value if relevant
-      //   });
-      // }
+      cta.addEventListener('click', function (e) {
+        // always allow right-click / open-in-new-tab behavior
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+          return;
+        }
 
-      // OPTIONAL: Expose function globally in case you want to call it from inline handlers
-      window.fireFbLead = fireLeadEvent;
-    })();
-  </script>
-
-</body>
-</html>
+        e.preventDefault()
