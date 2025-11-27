@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Meta Pixel Code (your Pixel ID used) -->
+  <!-- ====== Meta Pixel Code (Your Pixel ID) ====== -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,132 +17,201 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1543114426978558'); // ← your Pixel ID
+  fbq('init', '1543114426978558'); // ← तुम्हारा Pixel ID
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1543114426978558&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- ====== End Meta Pixel Code ====== -->
+
+  <style>
+    /* Minimal inline styling so page looks ok without external CSS */
+    body{font-family: 'Poppins',sans-serif;background:#0f1724;color:#e6eef8;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+    .card{width:360px;background:linear-gradient(180deg,#07102a 0%,#0b1b3a 100%);padding:22px;border-radius:16px;box-shadow:0 6px 24px rgba(2,6,23,0.6);text-align:center}
+    .top-badge{font-size:12px;color:#9fb2d6;margin-bottom:12px}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid #05203b}
+    .name{margin:12px 0 6px;font-size:20px;letter-spacing:1px}
+    .subtitle{color:#bacfe8;font-size:13px;margin:0 0 12px}
+    .pill-row{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+    .pill{background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:999px;font-size:12px;color:#cfe0ff}
+    .timer-box{margin:10px 0}
+    #timer{font-size:20px;font-weight:600}
+    .cta-btn{display:inline-block;margin-top:12px;background:#ff5a5f;color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+    .cta-btn.disabled{opacity:0.6;pointer-events:none}
+  </style>
 </head>
 
 <body>
-  <div class="bg-overlay"></div>
-
   <div class="card">
-    <!-- Online badge -->
     <div class="top-badge">
-      <span class="dot"></span>
+      <span style="display:inline-block;width:8px;height:8px;background:#3be07a;border-radius:50%;margin-right:8px;vertical-align:middle"></span>
       Private access • Dubai The Brand
     </div>
 
-    <!-- Center Avatar -->
-    <div class="avatar-wrapper">
-      <div class="avatar-ring">
-        <!-- अपनी DP का सही नाम यहाँ रखें -->
-        <img src="dp.jpg" alt="Dubai The Brand" class="avatar" />
-      </div>
+    <div style="margin-bottom:8px">
+      <img src="dp.jpg" alt="Dubai The Brand" class="avatar" />
     </div>
 
-    <!-- Name + subtitle -->
     <h1 class="name">DUBAI THE BRAND</h1>
-    <p class="subtitle">
-      Elite <span>cricket calls & pre-match breakdowns</span> for players who think in odds, not emotions.
-    </p>
+    <p class="subtitle">Elite <span style="color:#fff">cricket calls & pre-match breakdowns</span> for players who think in odds, not emotions.</p>
 
-    <!-- Small feature pills -->
     <div class="pill-row">
       <div class="pill">Gold-standard Analysis</div>
       <div class="pill">Discipline & Risk Control</div>
       <div class="pill">Invite-Only Vibes</div>
     </div>
 
-    <!-- Timer -->
     <div class="timer-box">
       <div id="timer">00:49</div>
-      <div class="timer-label">access window closing</div>
+      <div style="font-size:12px;color:#9fb2d6">access window closing</div>
     </div>
 
-    <!-- CTA Button (id added for JS handling) -->
-    <a id="ctaJoin" href="https://t.me/+x2e7GU-YMi9kYTc1" class="cta-btn">
-      Join Dubai The Brand on Telegram
-    </a>
+    <!-- CTA: ID must be ctaJoin -->
+    <a id="ctaJoin" class="cta-btn" href="https://t.me/+x2e7GU-YMi9kYTc1">Join Dubai The Brand on Telegram</a>
 
-    <!-- Text blocks -->
-    <p class="tagline">
-      Step into a room where <span>clarity, patience & numbers</span> speak louder than noise.
-    </p>
+    <p style="margin-top:12px;font-size:13px;color:#bcd4f4">Step into a room where <strong style="color:#fff">clarity, patience & numbers</strong> speak louder than noise.</p>
 
-    <div class="divider"></div>
+    <div style="height:1px;background:rgba(255,255,255,0.03);margin:14px 0;border-radius:2px"></div>
 
-    <p class="sub-tagline">
-      Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and scoreboard-aware reads – not random late calls.
-    </p>
+    <p style="font-size:12px;color:#9fb2d6">Inside the channel, you’ll see calm breakdowns before big games, structured staking ideas and scoreboard-aware reads – not random late calls.</p>
 
-    <div class="stats-row">
-      <div>Spots open: <span>Very limited</span></div>
-      <div>Mindset: <span>Professional & controlled</span></div>
+    <div style="display:flex;justify-content:space-between;margin-top:12px;font-size:13px;color:#cfe0ff">
+      <div>Spots open: <span style="color:#fff">Very limited</span></div>
+      <div>Mindset: <span style="color:#fff">Professional</span></div>
     </div>
 
-    <p class="disclaimer">
-      <strong>Note:</strong> Nothing here is a guarantee of profit. Decisions are yours – play only with money you can afford and keep your risk fixed.
-    </p>
+    <p style="font-size:11px;color:#9fb2d6;margin-top:14px"><strong>Note:</strong> Nothing here is a guarantee of profit. Decisions are yours – play only with money you can afford.</p>
   </div>
 
+  <!-- TIMER SCRIPT -->
   <script>
-    // Timer (unchanged)
     function startTimer(duration, display) {
       let timer = duration, minutes, seconds;
       setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
         display.textContent = minutes + ":" + seconds;
-
         if (--timer < 0) {
           timer = duration;
         }
       }, 1000);
     }
 
-    window.onload = function () {
+    window.addEventListener('load', function () {
       const countdownSeconds = 49;
       const display = document.getElementById("timer");
-      startTimer(countdownSeconds, display);
-    };
+      if (display) startTimer(countdownSeconds, display);
+    });
+  </script>
 
-    // ===== Meta Pixel Subscribe integration (fires once per browser) =====
-    (function () {
-      const CTA_ID = 'ctaJoin';
-      const LS_KEY = 'dtb_subscribed_v1'; // change version if you want to reset
-      const PIXEL_EVENT_NAME = 'Subscribe';
-      const SOURCE = 'github-landing';
-      const REDIRECT_DELAY_MS = 600; // same as original delay
+  <!-- ====== SUBSCRIBE (CTA) SCRIPT — fires Subscribe once per browser ====== -->
+  <script>
+  (function () {
+    const CTA_ID = 'ctaJoin';
+    const LS_KEY = 'dtb_subscribed_v1';
+    const PIXEL_ID = '1543114426978558';
+    const EVENT_NAME = 'Subscribe';
+    const DELAY = 600; // ms before redirect to allow pixel to send
 
-      const cta = document.getElementById(CTA_ID);
-      if (!cta) return;
+    const cta = document.getElementById(CTA_ID);
+    if (!cta) {
+      console.warn('CTA element not found:', CTA_ID);
+      return;
+    }
 
-      // safe UUID generator
-      function generateEventId() {
+    // generate event id (UUID if available)
+    function genEventId() {
+      try {
         if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-        return 'evt-' + Date.now() + '-' + Math.floor(Math.random()*1e9);
-      }
+      } catch (e) {}
+      return 'evt-' + Date.now() + '-' + Math.floor(Math.random()*1e9);
+    }
 
-      // If already subscribed in this browser, optionally change CTA text/state
+    // fallback image beacon to /tr
+    function sendImageBeacon(pixelId, evName, eventId) {
+      try {
+        const params = new URLSearchParams({
+          id: pixelId,
+          ev: evName,
+          'cd[event_id]': eventId,
+          noscript: 1
+        });
+        const url = 'https://www.facebook.com/tr/?' + params.toString();
+        const img = new Image();
+        img.src = url;
+        // append to DOM so browser loads it
+        document.body.appendChild(img);
+        console.log('Fallback beacon sent:', url);
+      } catch (err) {
+        console.warn('Beacon error', err);
+      }
+    }
+
+    // if already subscribed in this browser, update UI
+    if (localStorage.getItem(LS_KEY) === '1') {
+      cta.textContent = 'Joined — Thank you!';
+      cta.classList.add('disabled');
+    }
+
+    cta.addEventListener('click', function (e) {
+      // allow open-in-new-tab
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+
+      // if already fired, just redirect
       if (localStorage.getItem(LS_KEY) === '1') {
-        // show subscribed UI
-        cta.textContent = 'Joined — Thank you!';
-        cta.classList.add('disabled'); // you can style .disabled in CSS
-        // keep href so user can still open telegram if they want
+        window.location.href = cta.href;
+        return;
       }
 
-      cta.addEventListener('click', function (e) {
-        // always allow right-click / open-in-new-tab behavior
-        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
-          return;
-        }
+      const event_id = genEventId();
+      console.log('Subscribe click — event_id:', event_id);
 
-        e.preventDefault()
+      // 1) Primary: fbq track with payload
+      try {
+        if (window.fbq && typeof fbq === 'function') {
+          fbq('track', EVENT_NAME, {
+            event_id: event_id,
+            source: 'github-landing'
+          });
+          console.log('fbq(track, payload) called');
+        } else {
+          console.warn('fbq not available (payload form)');
+        }
+      } catch (err) {
+        console.error('fbq payload call error', err);
+      }
+
+      // 2) Secondary: fbq track with options object (some setups accept eventID here)
+      try {
+        if (window.fbq && typeof fbq === 'function') {
+          fbq('track', EVENT_NAME, {}, { eventID: event_id });
+          console.log('fbq(track, options) called');
+        }
+      } catch (err) {
+        console.error('fbq options call error', err);
+      }
+
+      // 3) Fallback beacon to ensure a /tr request goes out
+      sendImageBeacon(PIXEL_ID, EVENT_NAME, event_id);
+
+      // Mark locally so it fires once per browser
+      localStorage.setItem(LS_KEY, '1');
+
+      // UI feedback
+      cta.textContent = 'Joining…';
+      cta.classList.add('disabled');
+
+      // Redirect after short delay so pixel call can flush
+      setTimeout(function () {
+        window.location.href = cta.href;
+      }, DELAY);
+    });
+  })();
+  </script>
+
+</body>
+</html>
